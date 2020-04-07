@@ -112,8 +112,8 @@ due to these high variance across countries, I am interested in plotting the lin
 ![4 countries Plot](/countryfit.png)
 with coefficients as below
 
-| country | a | b | mean(points) | mean(price) | std(points) | std(price)|
-|---|:-:|:-:|:-:|:-:|:-:|:-:|
+| country | a | b | mean(points) | mean(price) | std(points) | std(price)| count|
+|---|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
 |Portugal |3.22556817e-02| 8.74710302e+01 |88.31671794871795 |26.21825641025641| 3.0165692004261886 |41.171017376689754 |4875|
 |US |5.21309447e-02| 8.66597780e+01 |88.56638717405326 |36.5734635584631| 3.1167966950633086 |27.08860780408873 |54265|
 |Spain |4.17382009e-02| 8.61130800e+01 |87.29073482428115 |28.215274608245853| 3.070682264757081 |34.65976066047531| 6573|

@@ -34,7 +34,7 @@ from src import *
 #
 ## Bonus 3
 #
-print('Doing Bonus 3')
+#print('Doing Bonus 3')
 #bon3(True)
 #bon3_2()
 #
@@ -50,6 +50,6 @@ print('Doing Bonus 3')
 #preprocess()
 #
 #print('Doing Bonus 4')
-#bon4()
+bon4()
 #
 #extra()

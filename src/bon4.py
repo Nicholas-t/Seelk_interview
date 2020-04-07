@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 from sklearn import linear_model
 from sklearn.model_selection import train_test_split
+from sklearn.neural_network import MLPRegressor
 
 countries = ['Portugal', 'US', 'Spain', 'Italy', 'France', 'Germany', 'Argentina', 'Chile',
     'Australia', 'Austria', 'South Africa', 'New Zealand', 'Israel', 'Hungary',
@@ -46,6 +47,7 @@ def get_regr(simple):
     print('X_train\n', X_train)
     print('y_train\n', y_train)
 
+
     print('Linear regressor ................')
 
     regr_lin = linear_model.LinearRegression()
@@ -62,8 +64,17 @@ def get_regr(simple):
     regr_log.fit(X_train,y_train)
 
     print('Score', regr_log.score(X_test, y_test))
+
+    print('MLP regressor ................')
+    print('ctrl+c if want to cut training')
+    mlp = MLPRegressor( random_state = 2)
+    mlp.fit(X_train,y_train)
+
+    print('Score', mlp.score(X_test, y_test))
+
+
     #print('Coeff ', regr.coef_)
-    print("press (1) for use linear regression and press (2) for logistic regression")
+    print("press (1) for use linear regression, press (2) for logistic regression, and 3 for MLP Regressor")
     t = input()
     if t == "1":
         print('proceeding with linear regressor ....')
@@ -71,6 +82,9 @@ def get_regr(simple):
     elif t == "2":
         print('proceeding with logistic regressor ....')
         return regr_log
+    elif t== "3":
+        print('proceeding with MLP regressor ....')
+        return mlp
     else:
         print('Bad Option. Exiting....')
         exit()

@@ -48,11 +48,7 @@ The result I got for this can be found in bonus2.csv
 
 3. **Bonus ⭐ ⭐  From the clean dataset (3) create a visualisation of points vs price.**
 
-did some curve fit with the function 
-
-![equation](http://www.sciweavers.org/tex2img.php?eq=f%28x%29%3D%20%5Cfrac%7Ba%20e%20%5E%20%7Bbx%7D%7D%7Bc%7D&bc=White&fc=Black&im=jpg&fs=12&ff=arev&edit=0)
-
-got constants : **a=0**, **b=0.928**, **c=103e+11**
+linear fit, got constants : **a=0.031**, **b=87.330** with ax + b
 
 4. **Bonus ⭐ ⭐ ⭐ Predict the points of a wine taking as input the price and the country (using Machine Learning).**
 
@@ -109,3 +105,15 @@ Moreover, we can deduce a more interesting insight when we apply colors to the p
 we can definitely see that there is a trend for each country (in this case a wine that is taken from argentina is likely to be more expensive, and the wine from argentina that costs 200 are not necessarily better than the wine from Cyprus that costs much less) 
 
 Because of these country specific characteristics, It is optimal to take into account the country as a parameter in our regressor in Bonus 4.
+
+
+For Bonus 4, I added MLP Regressor to have a comparison between linear model and neural network. From the table below, the linear regressor performs better than both logistic and MLP regressor, it adds more evidence that the relationship between prices and points is infact linear.
+
+| Regressor | Score | 
+|---|:-:|
+|Linear | 0.1651652174560685 |
+|Logistic | 0.16804498842209725 |
+| MLP|0.3982699056516519 |
+
+
+

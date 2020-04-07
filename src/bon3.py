@@ -46,7 +46,7 @@ def bon3_3():
             _df = df[df['country'] == c]
             x_fit = np.arange(min(_df['price']),max(_df['price']), 0.1)
             popt, pcov = curve_fit(func, _df['price'],_df['points'])
-            print(c, popt)
+            print(c, popt, np.mean(_df['points']), np.mean(_df['price']), np.std(_df['points']), np.std(_df['price']), _df.shape[0])
             plt.plot(x_fit, func(x_fit, *popt), label=c)
         except Exception as e:
             print(c, ' Failed to plot')

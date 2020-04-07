@@ -91,3 +91,22 @@ If I run the code in my computer, the output should be at least 3 folders:
 original: It contains the original CSV.
 cleaned: It contains the columnar files with id, points, price.
 aggregated: It contains the columnar files with the aggregations.
+
+**POST CALL**
+
+With Bonus 3 fixed, The new graph is as follows :
+
+![Bonus3 Plot](/bonus3.png)
+
+as we can see from the image above that is it a linear with the coefficient a to be close to 0.031, in an economic perspective, this means for every dollar increase in price, the points **on average** will increase by 0.031.
+Although due to the high variance of the data, it is with high probability that 
+the second coefficient
+
+
+![bycountry Plot](/bycountry.png)
+
+
+Moreover, we can also deduce a more interesting insight when we apply colors to the plot by each country.
+we can definitely see that there is a trend for each country (in this case a wine that is taken from argentina is likely to be more expensive, and the wine from argentina that costs 200 are not necessarily better than the wine from Cyprus that costs much less) 
+
+Because of these country specific characteristics, It is optimal to take into account the country as a parameter in our regressor in Bonus 4.

@@ -24,17 +24,31 @@ def get_top_points(df, n, below = 0, country=''):
 #plot mean and std price and index
 def plot_mean_std():
     df = pd.read_parquet('data/output_numeric.parquet.gzip')
-    X = df['points'].unique()
+    X = df['price'].unique()
     data = {}
     for index, row in df.iterrows():
-        if row['points'] not in data.keys():
-            data[row['points']] = []
-        data[row['points']] += [df.loc[index, 'price']]
-    plt.xlabel('points')
-    plt.ylabel('price')
-    plt.title('points vs price (Mean and std)')
+        if row['price'] not in data.keys():
+            data[row['price']] = []
+        data[row['price']] += [df.loc[index, 'points']]
+    plt.xlabel('price')
+    plt.ylabel('points')
+    plt.title('price vs points (Mean and std)')
     plt.errorbar(data.keys(), [np.mean(data[k]) for k in data.keys()], [np.std(data[k]) for k in data.keys()],  linestyle='None', marker='^')
     plt.show()
+
+def plot_by_country(countries = ['Portugal', 'Italy', 'China','Chile']):
+    figure, axes = plt.subplots(nrows=2, ncols=2)
+    df = pd.read_parquet('data/output_pre_numeric.parquet.gzip')
+    _df = df[df['country'] == countries[0]]
+    axes[0,0].scatter(_df['price'], _df['points'])
+    _df = df[df['country'] == countries[1]]
+    axes[0,1].scatter(_df['price'], _df['points'])
+    _df = df[df['country'] == countries[2]]
+    axes[1,0].scatter(_df['price'], _df['points'])
+    _df = df[df['country'] == countries[3]]
+    axes[1,1].scatter(_df['price'], _df['points'])
+    plt.show()
+
 
 # helper function to create folder
 def mkdir(folder):

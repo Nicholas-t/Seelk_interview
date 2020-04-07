@@ -1,24 +1,33 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 from scipy.optimize import curve_fit
+import seaborn
+seaborn.set(style='ticks')
 
 import numpy as np
 
 
-def func(x, a, b, c):
-    return a*np.exp(b*x)/c
+def func(x, a, b):
+    return a*x + b
 
 #Bonus 3
-def bon3(fit = False):
-    df = pd.read_parquet('data/output_numeric.parquet.gzip')
-    plt.plot(df['points'], df['price'], 'bo', label='data')
+def bon3(fit = False, color = True):
+    df = pd.read_parquet('data/output_pre_numeric.parquet.gzip')
+
+    plt.plot(df['price'], df['points'], 'bo', label='data')
     if fit:
-        x_fit = np.arange(min(df['points']), max(df['points']), 0.1)
+        x_fit = np.arange(min(df['price']),400, 0.1)
         print('Doing Fitting')
-        popt, pcov = curve_fit(func, df['points'],df['price'])
-        plt.plot(x_fit, func(x_fit, *popt), 'r', label='curve fit constants a=%5.3f, b=%5.3f, c=%5.3f' % tuple(popt))
-    plt.xlabel('points')
-    plt.ylabel('price')
-    plt.title('points vs price')
+        popt, pcov = curve_fit(func, df['price'],df['points'])
+        plt.plot(x_fit, func(x_fit, *popt), 'r', label='using linear fit  (%5.3f) x + (%5.3f)' % tuple(popt))
+    plt.xlabel('price')
+    plt.ylabel('points')
+    plt.title('price vs points')
     plt.legend()
+    plt.show()
+
+def bon3_2():
+    df = pd.read_parquet('data/output_pre_numeric.parquet.gzip')
+    fg = seaborn.FacetGrid(data=df, hue='country', aspect=1.61)
+    fg.map(plt.scatter, 'price', 'points').add_legend()
     plt.show()

@@ -114,6 +114,7 @@ with coefficients as below
 
 | country | a | b | mean(points) | mean(price) | std(points) | std(price)| count|
 |---|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+|all|X|X|88.42172251811175| 35.36864434814251 |3.0449292865354667| 41.03088269256777| 120916|
 |Portugal |3.22556817e-02| 8.74710302e+01 |88.31671794871795 |26.21825641025641| 3.0165692004261886 |41.171017376689754 |4875|
 |US |5.21309447e-02| 8.66597780e+01 |88.56638717405326 |36.5734635584631| 3.1167966950633086 |27.08860780408873 |54265|
 |Spain |4.17382009e-02| 8.61130800e+01 |87.29073482428115 |28.215274608245853| 3.070682264757081 |34.65976066047531| 6573|
@@ -123,9 +124,9 @@ with coefficients as below
 |Argentina |7.72053919e-02| 8.48180169e+01 |86.71033013844516 |24.510117145899894| 3.183374977729781 |23.427002476505614| 3756|
 |Chile |5.91463257e-02| 8.52660284e+01 |86.49547101449275 |20.786458333333332| 2.7001370998257648 |21.926887892214815| 4416|
 |Australia |2.84832674e-02| 8.75860860e+01 |88.59546643417612 |35.43766346992153| 2.996117281874334 |49.038766339813876| 2294|
-|Austria |3.55299233e-02| 8.90977835e+01 |90.19078242229368 |30.76277241872097| 2.4618650715990227 |27.21993364688152| 2799|
+|Austria |3.55299233e-02|**8.90977835e+01**|**90.19078242229368** |30.76277241872097| 2.4618650715990227 |27.21993364688152| 2799|
 |South Africa |6.0795763e-02| 8.6331630e+01 |87.83139984532096 |24.668986852281517| 2.344506202167755 |21.8346157686354| 1293|
-|New Zealand |6.89248068e-02| 8.64521499e+01 |88.30841799709724 |26.93178519593614| 2.4346200341366413 |17.094877134514157| 1378|
+|New Zealand |**6.89248068e-02**| 8.64521499e+01 |88.30841799709724 |26.93178519593614| 2.4346200341366413 |17.094877134514157| 1378|
 |Israel |4.52940177e-02| 8.70579907e+01 |88.49693251533742 |31.768916155419223| 2.47533658398909 |18.8789539677192 |489|
 |Hungary |1.32691416e-02| 8.86261495e+01 |89.1655172413793 |40.648275862068964| 2.6678515005549093 |69.21117420589238 |145|
 |Greece |3.17340570e-02| 8.65787893e+01 |87.2885032537961 |22.364425162689805| 2.1908056082439304 |10.599264961690995 |461|
@@ -149,17 +150,22 @@ with coefficients as below
 |India | 0.33333333 |85.77777778 |90.22222222222223 |13.333333333333334| 1.617802197617893| 3.4318767136623336| 9|
 |Bulgaria |7.89846124e-02| 8.67794098e+01 |87.93617021276596 |14.645390070921986| 2.070436161803988| 9.474964961310276 |141|
 |Cyprus | 0.16780045 |84.45124717 |87.18181818181819 |16.272727272727273| 1.526623238522424| 2.699862255439545 |11|
-|Armenia |1. |73. |87.5 |14.5| 0.5| 0.5| 2|
+|Armenia |**1.** |73. |87.5 |14.5| 0.5| 0.5| 2|
 |Switzerland |3.62800353e-03| 8.82620117e+01 |88.57142857142857 |85.28571428571429| 2.3211538298959886 |64.86626745128183| 7|
-|Bosnia and Herzegovina  |-3. |124. |86.5 |12.5| 1.5| 0.5| 2|
+|Bosnia and Herzegovina  |-3. |**124.** |86.5 |12.5| 1.5| 0.5| 2|
 |Ukraine |-0.16380299 |85.5807561  |84.07142857142857| 9.214285714285714| 1.5336364681131347| 2.1104695289563082 |14|
 |Macedonia | 0.31272727 |81.96       |86.83333333333333 |15.583333333333334| 1.674979270186815| 1.3819269959814167 |12|
 |China | Failed to plot|
 
-The table above is very useful for us because it gives us a direct estimation of each country from which we can deduce that **Bosnia and Herzegovina** has the highest intercept. But interestingly, the **a** coefficient is negative which means unlike most countries, points of a wine will infact decreases with price. This make sense because from [here](https://www.expatistan.com/cost-of-living/country/bosnia-and-herzegovina), which states Bosnia is the 3rd cheapest country in Eastern Europe, which means given the standards in the country, people in Bosnia will not like expensive wines.
+The table above is very useful for us because it gives us a direct estimation of each country from which we can initially deduce that **Bosnia and Herzegovina** has the highest intercept. But interestingly, the **a** coefficient is negative which means unlike most countries, points of a wine will infact decreases with price. These irregularities can then be explained after realising that bosnia only have 2 data points thus any sort of characteristics that we found will not be super relevant due to lack of sample size. 
 
-and for the country that has the most points increase per price, is **Armenia**, but just like before, unlike most countries, intercept for Armenian wine are much lower than most countries in this data sets. This is an indicator that the wine quality in Armenia is not that good. But the high rate of change shows that
+and for the country that has the most points increase per price, is **Armenia**, but unlike most countries, intercept for Armenian wine are much lower than most countries in this data sets. just like before, Armenia only have 2 data points, which means we cannot conclude any useful information from it.
 
+Thus, for the sake of simplicity we will arbitrarily decide the threshold of number of datasets to be able to take any conclusion accountable is 200.
+
+Among countries that has a sample size of more than 200, **Austria** has the highest intercept and the highest mean points.
+
+Among countries that has a sample size of more than 200, **New Zealand** has the increase in points for each price increase.
 
 For Bonus 4, I added MLP Regressor to have a comparison between linear model and neural network. From the table below, the linear regressor performs better than both logistic and MLP regressor, it adds more evidence that the relationship between prices and points is infact linear.
 

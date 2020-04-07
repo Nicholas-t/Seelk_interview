@@ -48,7 +48,11 @@ The result I got for this can be found in bonus2.csv
 
 3. **Bonus ⭐ ⭐  From the clean dataset (3) create a visualisation of points vs price.**
 
-_Trivial_
+did some curve fit with the function 
+
+$f(x) = \frac{a . e^{bx}}{c}$
+
+got constants : **a=**, **b=**, **c=**
 
 4. **Bonus ⭐ ⭐ ⭐ Predict the points of a wine taking as input the price and the country (using Machine Learning).**
 

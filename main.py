@@ -35,7 +35,7 @@ df.to_csv('./bonus2.csv')
 # Bonus 3
 
 print('Doing Bonus 3')
-bon3()
+bon3(fit=True)
 
 # plotting mean and std
 

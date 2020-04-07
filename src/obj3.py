@@ -1,7 +1,5 @@
 import pandas as pd
 from src.utils import mkdir
-#objective 3 
-#pre_numeric is here to avoid index issues
 
 
 def obj3(save):

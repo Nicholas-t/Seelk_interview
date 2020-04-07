@@ -1,1 +1,4 @@
+proto/
 data.csv
+*.gzip
+env/

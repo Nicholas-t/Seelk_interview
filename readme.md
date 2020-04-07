@@ -1,4 +1,5 @@
-Repo for seelk interview
+# Repo for seelk interview
+
 
 Objective 
 1. Open a CSV file and perform some tasks on it.
@@ -15,6 +16,19 @@ Bonus ⭐ What are the top 5 best wines below 10 USD?
 Bonus ⭐ What are the top 5 best wines below 30 USD from Chile 🗿?
 Bonus ⭐ ⭐  From the clean dataset (3) create a visualisation of points vs price.
 Bonus ⭐ ⭐ ⭐ Predict the points of a wine taking as input the price and the country (using Machine Learning).
+
+| Task | Done | 
+|---|:-:|
+| obj1 | ✔️ |
+| obj2 | ✔️ |
+| obj3|✔️ |
+| obj4 | ✔️ |
+| bon1 | ✔️ |
+| bon2| ✔️ |
+| bon3 | ✔️ |
+| bon4 | ✔️ |
+
+
 
 
 If I run the code in my computer, the output should be at least 3 folders:

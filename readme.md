@@ -1,7 +1,7 @@
 # Repo for seelk interview
 
 To test : 
-1. download data.csv from (here)[https://lengow.s3-eu-west-1.amazonaws.com/winemag-data-130k-v2.csv] (you have to rename it as _data.csv_)
+1. download data.csv from [here](https://lengow.s3-eu-west-1.amazonaws.com/winemag-data-130k-v2.csv) (you have to rename it as _data.csv_)
 2.  to initialize run : 
 ```
 python -m venv env 
@@ -18,7 +18,7 @@ python main.py
 1. _(Trivial)_
 2. Create a copy of the Dataset in a columnar format (You can choose between Parquet or ORC) and save it.
 
-I use the built-in function from pandas which enables me to (read)[https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_parquet.html] and (write)[https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.to_parquet.html] panda dataframe to parquet file.
+I use the built-in function from pandas which enables me to [read](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_parquet.html) and [write](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.to_parquet.html) panda dataframe to parquet file.
 
 3. Open the columnar file from (2), and create a new "clean" dataset. i.e. containing only (id, points, price).
 
@@ -46,7 +46,7 @@ _Trivial_
 
 Because we predicting a value, it can be deduced that the ML tools we have to use is regressor (it doesnt make sense to do classification problem even though our data is somewhat discrete).
 
-Looking at the plot from **Bonus 3** and **mean_std** plot, we know that the data is not super linear, which means it is optimal for us to use (logistic regressor)[https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html]
+Looking at the plot from **Bonus 3** and **mean_std** plot, we know that the data is not super linear, which means it is optimal for us to use [logistic regressor](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html)
 
 In order to achieve a consistent result we will manually set the random seed.
 

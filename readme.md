@@ -50,9 +50,9 @@ The result I got for this can be found in bonus2.csv
 
 did some curve fit with the function 
 
-$f(x) = \frac{a . e^{bx}}{c}$
+![equation](http://www.sciweavers.org/tex2img.php?eq=f%28x%29%3D%20%5Cfrac%7Ba%20e%20%5E%20%7Bbx%7D%7D%7Bc%7D&bc=White&fc=Black&im=jpg&fs=12&ff=arev&edit=0)
 
-got constants : **a=**, **b=**, **c=**
+got constants : **a=0**, **b=0.928**, **c=103e+11**
 
 4. **Bonus ⭐ ⭐ ⭐ Predict the points of a wine taking as input the price and the country (using Machine Learning).**
 

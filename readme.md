@@ -1,7 +1,7 @@
 # Repo for seelk interview (Python 3.8)
 
 To test : 
-1. download data.csv from [here](https://lengow.s3-eu-west-1.amazonaws.com/winemag-data-130k-v2.csv) (you have to rename it as _data.csv_)
+1. download data.csv from|here](https://lengow.s3-eu-west-1.amazonaws.com/winemag-data-130k-v2.csv) (you have to rename it as _data.csv_)
 2.  to initialize run : 
 ```
 python -m venv env 
@@ -88,7 +88,7 @@ original: It contains the original CSV.
 cleaned: It contains the columnar files with id, points, price.
 aggregated: It contains the columnar files with the aggregations.
 
-**POST CALL**
+# POST CALL
 
 With Bonus 3 fixed, The new graph is as follows :
 
@@ -104,15 +104,59 @@ Although due to the high variance of the data, it is with a high probability tha
 Moreover, we can deduce a more interesting insight when we apply colors to the plot by each country.
 we can definitely see that there is a trend for each country (in this case a wine that is taken from argentina is likely to be more expensive, and the wine from argentina that costs 200 are not necessarily better than the wine from Cyprus that costs much less) 
 
-Because of these country specific characteristics, It is optimal to take into account the country as a parameter in our regressor in Bonus 4.
 
 ![4 countries Plot](/4countries.png)
-| id | Country | Count | mean(points) | mean(price) | std(points) | std(price)|
-|---|:-:|:-:|:-:|:-:|:-:|:-:|
-| 1 | Argentina| 3756 | 86.710330 | 24.510117 |3.183799 | 23.430122|
-| 2 | Israel|489 |88.496933 |  31.768916 | 2.477871  | 18.898287|
-| 3 | Moldova|59 | 87.203390 | 16.745763 |2.419601  | 9.522375|
-| 4 | Cyprus|11 | 87.181818 | 16.272727 | 1.601136  | 2.831639|
+
+due to these high variance across countries, I am interested in plotting the linear fit of each country, and calculating the coefficients
+
+![4 countries Plot](/countryfit.png)
+with coefficients as below
+| country | a | b | 
+|---|:-:|:-:|
+|Portugal|3.22556817e-02 |8.74710302e+01|
+|US|5.21309447e-02 |8.66597780e+01|
+|Spain|4.17382009e-02 |8.61130800e+01|
+|Italy|3.69249998e-02 |8.71536014e+01|
+|France|1.65753342e-02 |8.80529726e+01|
+|Germany|1.78297357e-02 |8.90828799e+01|
+|Argentina|7.72053919e-02 |8.48180169e+01|
+|Chile|5.91463257e-02 |8.52660284e+01|
+|Australia|2.84832674e-02 |8.75860860e+01|
+|Austria|3.55299233e-02 |8.90977835e+01|
+|South Africa|6.0795763e-02| 8.6331630e+01|
+|New Zealand|6.89248068e-02 |8.64521499e+01|
+|Israel|4.52940177e-02 |8.70579907e+01|
+|Hungary|1.32691416e-02 |8.86261495e+01|
+|Greece|3.17340570e-02 |8.65787893e+01|
+|Romania|5.72014921e-03 |8.63128154e+01|
+|Mexico|7.23093342e-02 |8.33202857e+01|
+|Canada|3.88113919e-02 |8.79918971e+01|
+|Turkey|3.40395739e-02 |8.72503807e+01|
+|Czech Republic|7.83669639e-02 |8.53496011e+01|
+|Slovenia|5.81494624e-02 |8.65696665e+01|
+|Luxembourg|-6.83229814e-02  |9.02608696e+01|
+|Croatia|6.31882800e-02 |8.57439265e+01|
+|Georgia|1.06590646e-02 |8.74726231e+01|
+|Uruguay|5.30350272e-02 |8.53519742e+01|
+|England|3.46444045e-02 |8.97602616e+01|
+|Lebanon|4.84964775e-02 |8.61975652e+01|
+|Serbia| 0.08541846| 85.40724763|
+|Brazil|6.39195942e-02 |8.31404641e+01|
+|Moldova| 0.14565957 |84.7642092 |
+|Morocco|4.25079702e-03 |8.84885380e+01|
+|Peru|4.44270891e-02 |8.27600357e+01|
+|India| 0.33333333| 85.77777778|
+|Bulgaria|7.89846124e-02 |8.67794098e+01|
+|Cyprus| 0.16780045 |84.45124717|
+|Armenia| 1.| 73.|
+|Switzerland|3.62800353e-03 |8.82620117e+01|
+|Bosnia and Herzegovina| -3.| 124.|
+|Ukraine|-0.16380299| 85.5807561 |
+|Slovakia | Failed to plot||
+|Macedonia| 0.31272727 |81.96      |
+|China|  Failed to plot||
+
+The table above is very useful for us because it gives us a direct estimation of each country.
 
 For Bonus 4, I added MLP Regressor to have a comparison between linear model and neural network. From the table below, the linear regressor performs better than both logistic and MLP regressor, it adds more evidence that the relationship between prices and points is infact linear.
 

@@ -4,5 +4,5 @@ from src.obj3 import obj3
 from src.obj4 import obj4
 from src.bon1 import bon1
 from src.bon2 import bon2
-from src.bon3 import bon3, bon3_2
+from src.bon3 import bon3, bon3_2, bon3_3
 from src.bon4 import bon4, preprocess

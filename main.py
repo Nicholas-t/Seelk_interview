@@ -37,6 +37,7 @@ from src import *
 #print('Doing Bonus 3')
 #bon3(True)
 #bon3_2()
+#bon3_3()
 #
 ## plotting mean and std
 #
@@ -51,4 +52,4 @@ from src import *
 #
 #print('Doing Bonus 4')
 #bon4()
-plot_by_country()
+#plot_by_country()

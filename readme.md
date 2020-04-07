@@ -106,6 +106,13 @@ we can definitely see that there is a trend for each country (in this case a win
 
 Because of these country specific characteristics, It is optimal to take into account the country as a parameter in our regressor in Bonus 4.
 
+![4 countries Plot](/4countries.png)
+| id | Country | Count | mean(points) | mean(price) | std(points) | std(price)|
+|---|:-:|:-:|:-:|:-:|:-:|:-:|
+| 1 | Argentina| 3756 | 86.710330 | 24.510117 |3.183799 | 23.430122|
+| 2 | Israel|489 |88.496933 |  31.768916 | 2.477871  | 18.898287|
+| 3 | Moldova|59 | 87.203390 | 16.745763 |2.419601  | 9.522375|
+| 4 | Cyprus|11 | 87.181818 | 16.272727 | 1.601136  | 2.831639|
 
 For Bonus 4, I added MLP Regressor to have a comparison between linear model and neural network. From the table below, the linear regressor performs better than both logistic and MLP regressor, it adds more evidence that the relationship between prices and points is infact linear.
 

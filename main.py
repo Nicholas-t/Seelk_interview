@@ -50,6 +50,5 @@ from src import *
 #preprocess()
 #
 #print('Doing Bonus 4')
-bon4()
-#
-#extra()
+#bon4()
+plot_by_country()

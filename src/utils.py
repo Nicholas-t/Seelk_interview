@@ -36,17 +36,29 @@ def plot_mean_std():
     plt.errorbar(data.keys(), [np.mean(data[k]) for k in data.keys()], [np.std(data[k]) for k in data.keys()],  linestyle='None', marker='^')
     plt.show()
 
-def plot_by_country(countries = ['Portugal', 'Italy', 'China','Chile']):
+def plot_by_country(countries = ['Argentina', 'Israel', 'Moldova','Cyprus']):
     figure, axes = plt.subplots(nrows=2, ncols=2)
     df = pd.read_parquet('data/output_pre_numeric.parquet.gzip')
     _df = df[df['country'] == countries[0]]
+    print(_df.describe())
     axes[0,0].scatter(_df['price'], _df['points'])
+    axes[0,0].title.set_text(countries[0])
+
     _df = df[df['country'] == countries[1]]
+    print(_df.describe())
     axes[0,1].scatter(_df['price'], _df['points'])
+    axes[0,1].title.set_text(countries[1])
+
     _df = df[df['country'] == countries[2]]
+    print(_df.describe())
     axes[1,0].scatter(_df['price'], _df['points'])
+    axes[1,0].title.set_text(countries[2])
+
     _df = df[df['country'] == countries[3]]
+    print(_df.describe())
     axes[1,1].scatter(_df['price'], _df['points'])
+    axes[1,1].title.set_text(countries[3])
+
     plt.show()
 
 

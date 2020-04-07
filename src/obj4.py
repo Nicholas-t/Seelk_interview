@@ -1,7 +1,8 @@
 import pandas as pd
+from src.utils import mkdir
+
 
 #objective 4 part 1
-
 def obj4_1():
     df = pd.read_parquet('data/output_pre_numeric.parquet.gzip')
     country = df.filter(['country'], axis=1)
@@ -11,19 +12,15 @@ def obj4_1():
     #print('output_country done')
 
 #objective 4 part 2
-def obj4_2():
+def obj4_2(save):
     df_country = pd.read_parquet('data/output_country.parquet.gzip')
     countries = df_country.country.unique()
-
-    aggeregate = {}
-
+    country_indexes = {}
     for c in countries:
-        aggeregate[c] = df_country.index[df_country['country'] == c].tolist()
-
+        country_indexes[c] = df_country.index[df_country['country'] == c].tolist()
     df_numeric = pd.read_parquet('data/output_numeric.parquet.gzip')
     new = []
-
-    for (country, indexes) in aggeregate.items():
+    for (country, indexes) in country_indexes.items():
         rows = df_numeric.iloc[indexes,:]
         temp = {
             'country' : country,
@@ -38,7 +35,12 @@ def obj4_2():
     #print(df_new)
     df_new.to_parquet('data/output_avg_std.parquet.gzip', 
         compression = 'gzip') 
+    if save:
+        mkdir('aggeregated')
+        df_new.to_parquet('aggeregated/output_avg_std.parquet.gzip', 
+        compression = 'gzip') 
+        print('folder "aggeregated" created')
 
-def obj4():
+def obj4(save):
     obj4_1()
-    obj4_2()
+    obj4_2(save)

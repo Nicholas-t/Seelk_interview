@@ -9,6 +9,7 @@ def bon3(lin_fit = False):
     plt.scatter(df['points'], df['price'])
     plt.xlabel('points')
     plt.ylabel('price')
+    plt.title('points vs price')
     if lin_fit:
         print('Doing Linear Fit')
         F, A = np.polyfit(df['points'],df['price'], 1)

@@ -2,3 +2,6 @@ proto/
 data.csv
 *.gzip
 env/
+original/
+clean/
+aggeregated

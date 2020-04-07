@@ -150,13 +150,9 @@ with coefficients as below
 |Cyprus| 0.16780045 |84.45124717|
 |Armenia| 1.| 73.|
 |Switzerland|3.62800353e-03 |8.82620117e+01|
-|Bosnia and Herzegovina| -3.| 124.|
-|Ukraine|-0.16380299| 85.5807561 |
-|Slovakia | Failed to plot||
 |Macedonia| 0.31272727 |81.96      |
-|China|  Failed to plot||
 
-The table above is very useful for us because it gives us a direct estimation of each country.
+The table above is very useful for us because it gives us a direct estimation of each country from which we can deduce that **luxemburg** has the highest intercept.
 
 For Bonus 4, I added MLP Regressor to have a comparison between linear model and neural network. From the table below, the linear regressor performs better than both logistic and MLP regressor, it adds more evidence that the relationship between prices and points is infact linear.
 

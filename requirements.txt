@@ -1,6 +1,6 @@
 cycler==0.10.0
 fastparquet==0.3.3
-joblib==0.14.1
+joblib==1.2.0
 kiwisolver==1.2.0
 llvmlite==0.31.0
 matplotlib==3.2.1
